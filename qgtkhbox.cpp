@@ -7,7 +7,7 @@ QGtkHBox::QGtkHBox(QGtkObject *parent)
 
 GObject *QGtkHBox::acquireObject() const
 {
-    return G_OBJECT(gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 1));
+    return G_OBJECT(gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0));
 }
 
 void QGtkHBox::sync()

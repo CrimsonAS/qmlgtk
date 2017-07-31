@@ -35,6 +35,7 @@
 #include "qgtkbutton.h"
 #include "qgtkhbox.h"
 #include "qgtkvbox.h"
+#include "qgtkspinner.h"
 
 static void activate_cb(GtkApplication *that, gpointer)
 {
@@ -62,6 +63,7 @@ int main(int argc, char **argv)
     qmlRegisterType<QGtkButton>("Gtk", 3, 0, "Button");
     qmlRegisterType<QGtkHBox>("Gtk", 3, 0, "HBox");
     qmlRegisterType<QGtkVBox>("Gtk", 3, 0, "VBox");
+    qmlRegisterType<QGtkSpinner>("Gtk", 3, 0, "Spinner");
 
     QQmlApplicationEngine e(QUrl::fromLocalFile("test.qml"));
 

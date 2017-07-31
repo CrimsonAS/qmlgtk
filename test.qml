@@ -9,8 +9,14 @@ Application {
             Button {
                 label: "Hi"
             }
-            Button {
-                label: "Hi also"
+
+            HBox {
+                Button {
+                    label: "Hi also"
+                }
+                Spinner {
+                    active: true
+                }
             }
         }
     }

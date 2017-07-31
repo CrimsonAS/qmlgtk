@@ -18,7 +18,8 @@ HEADERS += \
     qgtkwindow.h \
     qgtkbutton.h \
     qgtkhbox.h \
-    qgtkvbox.h
+    qgtkvbox.h \
+    qgtkspinner.h
 
 SOURCES += \
     main.cpp \
@@ -28,4 +29,5 @@ SOURCES += \
     qgtkwindow.cpp \
     qgtkbutton.cpp \
     qgtkhbox.cpp \
-    qgtkvbox.cpp
+    qgtkvbox.cpp \
+    qgtkspinner.cpp
