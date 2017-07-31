@@ -29,8 +29,10 @@ void QGtkBox::childCreated(QGtkObject *w)
     GtkBox *box = gtkBox();
     GtkWidget *childWidget = cw->gtkWidget();
 
-    // ### gtk_box_pack_end too, via attached prop!
-    gtk_box_pack_start(box, childWidget, pack->expand() ? TRUE : FALSE, pack->fill() ? TRUE : FALSE, pack->padding());
+    if (pack->packDirection() == QGtkBoxPackAttached::PackStart)
+        gtk_box_pack_start(box, childWidget, pack->expand() ? TRUE : FALSE, pack->fill() ? TRUE : FALSE, pack->padding());
+    else
+        gtk_box_pack_end(box, childWidget, pack->expand() ? TRUE : FALSE, pack->fill() ? TRUE : FALSE, pack->padding());
 }
 
 
@@ -76,5 +78,18 @@ void QGtkBoxPackAttached::setPadding(int p)
         return;
     m_padding = p;
     emit paddingChanged();
+}
+
+QGtkBoxPackAttached::PackDirection QGtkBoxPackAttached::packDirection() const
+{
+    return m_packDirection;
+}
+
+void QGtkBoxPackAttached::setPackDirection(const QGtkBoxPackAttached::PackDirection &p)
+{
+    if (m_packDirection == p)
+        return;
+    m_packDirection = p;
+    emit packDirectionChanged();
 }
 

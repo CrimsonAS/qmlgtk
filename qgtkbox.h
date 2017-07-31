@@ -26,6 +26,7 @@ class QGtkBoxPackAttached : public QObject
     Q_PROPERTY(bool expand READ expand WRITE setExpand NOTIFY expandChanged)
     Q_PROPERTY(bool fill READ fill WRITE setFill NOTIFY fillChanged)
     Q_PROPERTY(int padding READ padding WRITE setPadding NOTIFY paddingChanged)
+    Q_PROPERTY(PackDirection packDirection READ packDirection WRITE setPackDirection NOTIFY packDirectionChanged)
 
 public:
     QGtkBoxPackAttached(QObject *parent);
@@ -39,15 +40,28 @@ public:
     int padding() const;
     void setPadding(int p);
 
+    enum PackDirection {
+        PackStart,
+        PackEnd
+    };
+
+    PackDirection packDirection() const;
+    void setPackDirection(const PackDirection &p);
+
 signals:
     void expandChanged();
     void fillChanged();
     void paddingChanged();
+    void packDirectionChanged();
 
 private:
     bool m_expand = 0;
     bool m_fill = false;
     int m_padding = 0;
+
+    // ### this seems weird... I wonder if QGtkObject is doing something funky,
+    // I would have expected PackEnd to be the right default
+    PackDirection m_packDirection = PackStart;
 };
 
 #endif
