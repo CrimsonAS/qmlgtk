@@ -7,6 +7,7 @@ GtkApplication *QGtkApplication::appInstance = 0;
 
 QGtkApplication::QGtkApplication(QObject *parent)
     : QGtkObject(parent)
+    , m_darkTheme(0)
 {
     // ### assert singleton
     instance = this;
@@ -22,7 +23,8 @@ GObject *QGtkApplication::acquireObject()
 
 void QGtkApplication::sync()
 {
-    g_object_set(gtk_settings_get_default(), "gtk-application-prefer-dark-theme", m_darkTheme ? TRUE : FALSE, NULL);
+    // ### this is crashy
+    //g_object_set(gtk_settings_get_default(), "gtk-application-prefer-dark-theme", m_darkTheme ? TRUE : FALSE, NULL);
 }
 
 // ### this should probably be in a GtkSettings instead
