@@ -19,6 +19,7 @@ HEADERS += \
     qgtkapplication.h \
     qgtkwidget.h \
     qgtkwindow.h \
+    qgtklabel.h \
     qgtkbutton.h \
     qgtkbox.h \
     qgtkhbox.h \
@@ -32,6 +33,7 @@ SOURCES += \
     qgtkapplication.cpp \
     qgtkwidget.cpp \
     qgtkwindow.cpp \
+    qgtklabel.cpp \
     qgtkbutton.cpp \
     qgtkbox.cpp \
     qgtkhbox.cpp \

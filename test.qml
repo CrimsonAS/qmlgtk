@@ -9,8 +9,13 @@ Application {
         title: "A native Gtk window!"
 
         VBox {
-            Button {
-                label: "Hi"
+            HBox {
+                Label {
+                    text: "Some plain text <b>here</b>"
+                }
+                Label {
+                    markup: "Some marked up text <b>here</b>"
+                }
             }
 
             HBox {

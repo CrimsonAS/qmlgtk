@@ -32,6 +32,7 @@
 #include "qgtkobject.h"
 #include "qgtkapplication.h"
 #include "qgtkwindow.h"
+#include "qgtklabel.h"
 #include "qgtkbutton.h"
 #include "qgtkbox.h"
 #include "qgtkhbox.h"
@@ -60,6 +61,7 @@ int main(int argc, char **argv)
 
     qmlRegisterType<QGtkApplication>("Gtk", 3, 0, "Application");
     qmlRegisterType<QGtkWindow>("Gtk", 3, 0, "Window");
+    qmlRegisterType<QGtkLabel>("Gtk", 3, 0, "Label");
     qmlRegisterType<QGtkButton>("Gtk", 3, 0, "Button");
     qmlRegisterUncreatableType<QGtkBoxPackAttached>("Gtk", 3, 3, "Box", QGtkBoxPackAttached::tr("Box is only available via attached properties"));
     qmlRegisterType<QGtkHBox>("Gtk", 3, 0, "HBox");
