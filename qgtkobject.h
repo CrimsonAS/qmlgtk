@@ -26,6 +26,7 @@ protected:
     virtual GObject *acquireObject() = 0;
     virtual void sync() = 0;
     void create();
+    virtual void childCreated(QGtkObject *o);
 
     QVector<QObject*> m_childs;
     GObject *m_me;

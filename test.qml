@@ -19,6 +19,8 @@ Application {
                     onClicked: {
                         spinner.active = !spinner.active
                     }
+                    HBox.expand: true
+                    HBox.fill: true
                 }
                 Spinner {
                     id: spinner

@@ -33,6 +33,7 @@
 #include "qgtkapplication.h"
 #include "qgtkwindow.h"
 #include "qgtkbutton.h"
+#include "qgtkbox.h"
 #include "qgtkhbox.h"
 #include "qgtkvbox.h"
 #include "qgtkspinner.h"
@@ -62,10 +63,13 @@ int main(int argc, char **argv)
     qmlRegisterType<QGtkApplication>("Gtk", 3, 0, "Application");
     qmlRegisterType<QGtkWindow>("Gtk", 3, 0, "Window");
     qmlRegisterType<QGtkButton>("Gtk", 3, 0, "Button");
+    qmlRegisterUncreatableType<QGtkBoxPackAttached>("Gtk", 3, 3, "Box", QGtkBoxPackAttached::tr("Box is only available via attached properties"));
     qmlRegisterType<QGtkHBox>("Gtk", 3, 0, "HBox");
     qmlRegisterType<QGtkVBox>("Gtk", 3, 0, "VBox");
     qmlRegisterType<QGtkSpinner>("Gtk", 3, 0, "Spinner");
     qmlRegisterType<QGtkProgressBar>("Gtk", 3, 0, "ProgressBar");
+
+
 
     QQmlApplicationEngine e(QUrl::fromLocalFile("test.qml"));
 

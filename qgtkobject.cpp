@@ -26,25 +26,20 @@ void QGtkObject::create()
     m_me = acquireObject();
     sync();
 
-    GObject *ours = gObject();
-    GtkContainer *ourContainer = 0;
-    if (GTK_IS_CONTAINER(ours))
-        ourContainer = GTK_CONTAINER(ours);
-
     for (QObject *c : m_childs) {
         if (QGtkObject *co = qobject_cast<QGtkObject*>(c)) {
             // acquire, sync props
             co->create();
 
-            if (QGtkWidget *cw = qobject_cast<QGtkWidget*>(c)) {
-                if (ourContainer) {
-                    GtkWidget *childWidget = cw->gtkWidget();
-                    qDebug() << "container" << this << co;
-                    gtk_container_add(ourContainer, childWidget);
-                }
-            }
+            // handle it further (e.g. adding it, if we are a container).
+            childCreated(co);
         }
     }
+}
+
+void QGtkObject::childCreated(QGtkObject *o)
+{
+    // ### ref_sink (& unref in dtor)
 }
 
 void QGtkObject::appendGtkChild(QQmlListProperty<QObject> *prop, QObject *child)

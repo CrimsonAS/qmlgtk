@@ -1,7 +1,7 @@
 #include "qgtkhbox.h"
 
 QGtkHBox::QGtkHBox(QGtkObject *parent)
-    : QGtkWidget(parent)
+    : QGtkBox(parent)
 {
 }
 
@@ -16,5 +16,10 @@ void QGtkHBox::sync()
         return;
 
     QGtkWidget::sync();
+}
+
+QGtkBoxPackAttached *QGtkHBox::qmlAttachedProperties(QObject *object)
+{
+    return new QGtkBoxPackAttached(object);
 }
 

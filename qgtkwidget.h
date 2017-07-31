@@ -20,13 +20,14 @@ signals:
 
 protected:
     void sync() override;
+    void childCreated(QGtkObject *o) override;
 
     GtkWidget *gtkWidget() const;
 
 private:
     bool m_visible;
 
-    friend class QGtkObject;
+    friend class QGtkBox;
 };
 
 #endif

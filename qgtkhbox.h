@@ -1,14 +1,16 @@
 #ifndef QGTKHBOX_H
 #define QGTKHBOX_H
 
-#include "qgtkwidget.h"
+#include "qgtkbox.h"
 
-class QGtkHBox : public QGtkWidget
+class QGtkHBox : public QGtkBox
 {
     Q_OBJECT
 
 public:
     QGtkHBox(QGtkObject *parent = 0);
+
+    static QGtkBoxPackAttached *qmlAttachedProperties(QObject *object);
 
 protected:
     GObject *acquireObject() override;
@@ -19,6 +21,7 @@ private:
     QString m_label;
 };
 
-#endif
+QML_DECLARE_TYPEINFO(QGtkHBox, QML_HAS_ATTACHED_PROPERTIES)
 
+#endif
 
