@@ -31,6 +31,9 @@ QString QGtkButton::label() const
 
 void QGtkButton::setLabel(const QString &l)
 {
+    if (m_label == l)
+        return;
+
     m_label = l;
     emit labelChanged();
     sync();
