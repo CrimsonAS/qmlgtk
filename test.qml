@@ -1,6 +1,8 @@
 import Gtk 3.0
 
 Application {
+    useDarkTheme: true
+
     Window {
         id: win
         visible: true
