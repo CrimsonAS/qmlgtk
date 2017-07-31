@@ -17,6 +17,9 @@ Application {
                 Label {
                     markup: "Some marked up text <b>here</b>"
                 }
+                Image {
+                    fileName: "flower.jpg"
+                }
             }
 
             HBox {
