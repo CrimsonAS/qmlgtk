@@ -13,7 +13,7 @@ QGtkApplication::QGtkApplication(QObject *parent)
     });
 }
 
-GObject *QGtkApplication::acquireObject() const
+GObject *QGtkApplication::acquireObject()
 {
     return G_OBJECT(appInstance);
 }

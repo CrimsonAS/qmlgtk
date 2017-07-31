@@ -6,7 +6,7 @@ QGtkSpinner::QGtkSpinner(QGtkObject *parent)
 {
 }
 
-GObject *QGtkSpinner::acquireObject() const
+GObject *QGtkSpinner::acquireObject()
 {
     return G_OBJECT(gtk_spinner_new());
 }

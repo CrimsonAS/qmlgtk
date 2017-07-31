@@ -18,7 +18,7 @@ Q_SIGNALS:
     void startup();
 
 protected:
-    GObject *acquireObject() const override;
+    GObject *acquireObject() override;
     void sync() override;
 };
 

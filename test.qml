@@ -12,10 +12,13 @@ Application {
 
             HBox {
                 Button {
-                    label: "Hi also"
+                    label: "Click to turn me " + (spinner.active ? "off" : "on")
+                    onClicked: {
+                        spinner.active = !spinner.active
+                    }
                 }
                 Spinner {
-                    active: true
+                    id: spinner
                 }
             }
         }

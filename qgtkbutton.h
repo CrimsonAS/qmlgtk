@@ -18,10 +18,19 @@ public:
 signals:
     void labelChanged();
 
+    // ### consider an event wrapper
+    void pressed();
+    void released();
+    void clicked();
+
 protected:
-    GObject *acquireObject() const override;
+    GObject *acquireObject() override;
     GtkButton *gtkButton() const { return GTK_BUTTON(gObject()); }
     void sync() override;
+
+    static void onPressed(QGtkButton *that);
+    static void onReleased(QGtkButton *that);
+    static void onClicked(QGtkButton *that);
 
 private:
     QString m_label;

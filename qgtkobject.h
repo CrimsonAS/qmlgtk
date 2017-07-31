@@ -23,7 +23,7 @@ public:
 
 protected:
     GObject *gObject() const;
-    virtual GObject *acquireObject() const = 0;
+    virtual GObject *acquireObject() = 0;
     virtual void sync() = 0;
     void create();
 

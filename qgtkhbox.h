@@ -11,7 +11,7 @@ public:
     QGtkHBox(QGtkObject *parent = 0);
 
 protected:
-    GObject *acquireObject() const override;
+    GObject *acquireObject() override;
     GtkBox *gtkBox() const { return GTK_BOX(gObject()); }
     void sync() override;
 

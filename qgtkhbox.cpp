@@ -5,7 +5,7 @@ QGtkHBox::QGtkHBox(QGtkObject *parent)
 {
 }
 
-GObject *QGtkHBox::acquireObject() const
+GObject *QGtkHBox::acquireObject()
 {
     return G_OBJECT(gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0));
 }

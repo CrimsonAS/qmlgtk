@@ -19,7 +19,7 @@ signals:
     void activeChanged();
 
 protected:
-    GObject *acquireObject() const override;
+    GObject *acquireObject() override;
     GtkSpinner *gtkSpinner() const { return GTK_SPINNER(gObject()); }
     void sync() override;
 

@@ -5,7 +5,7 @@ QGtkWindow::QGtkWindow(QGtkObject *parent)
 {
 }
 
-GObject *QGtkWindow::acquireObject() const
+GObject *QGtkWindow::acquireObject()
 {
     GtkWidget *w = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     gtk_window_set_title(GTK_WINDOW(w), "Hello, Gtk!");

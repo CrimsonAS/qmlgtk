@@ -10,7 +10,7 @@ public:
     QGtkWindow(QGtkObject *parent = 0);
 
 protected:
-    GObject *acquireObject() const override;
+    GObject *acquireObject() override;
     void sync() override;
 };
 
