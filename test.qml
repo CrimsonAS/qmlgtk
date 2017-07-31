@@ -4,6 +4,7 @@ Application {
     Window {
         id: win
         visible: true
+        title: "A native Gtk window!"
 
         VBox {
             Button {
