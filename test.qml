@@ -5,7 +5,7 @@ Application {
         id: win
         visible: true
 
-        Box {
+        VBox {
             Button {
                 label: "Hi"
             }

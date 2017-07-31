@@ -1,16 +1,16 @@
-#include "qgtkbox.h"
+#include "qgtkvbox.h"
 
-QGtkBox::QGtkBox(QGtkObject *parent)
+QGtkVBox::QGtkVBox(QGtkObject *parent)
     : QGtkWidget(parent)
 {
 }
 
-GObject *QGtkBox::acquireObject() const
+GObject *QGtkVBox::acquireObject() const
 {
     return G_OBJECT(gtk_box_new(GTK_ORIENTATION_VERTICAL, 1));
 }
 
-void QGtkBox::sync()
+void QGtkVBox::sync()
 {
     if (!gtkBox())
         return;

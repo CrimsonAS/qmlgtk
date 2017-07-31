@@ -1,14 +1,14 @@
-#ifndef QGTKBOX_H
-#define QGTKBOX_H
+#ifndef QGTKHBOX_H
+#define QGTKHBOX_H
 
 #include "qgtkwidget.h"
 
-class QGtkBox : public QGtkWidget
+class QGtkHBox : public QGtkWidget
 {
     Q_OBJECT
 
 public:
-    QGtkBox(QGtkObject *parent = 0);
+    QGtkHBox(QGtkObject *parent = 0);
 
 protected:
     GObject *acquireObject() const override;

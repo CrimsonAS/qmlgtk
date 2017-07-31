@@ -33,7 +33,8 @@
 #include "qgtkapplication.h"
 #include "qgtkwindow.h"
 #include "qgtkbutton.h"
-#include "qgtkbox.h"
+#include "qgtkhbox.h"
+#include "qgtkvbox.h"
 
 static void activate_cb(GtkApplication *that, gpointer)
 {
@@ -56,10 +57,11 @@ int main(int argc, char **argv)
 
     QCoreApplication a(argc, argv);
 
-    qmlRegisterType<QGtkApplication>("Gtk", 4, 0, "Application");
-    qmlRegisterType<QGtkWindow>("Gtk", 4, 0, "Window");
-    qmlRegisterType<QGtkButton>("Gtk", 4, 0, "Button");
-    qmlRegisterType<QGtkBox>("Gtk", 4, 0, "Box");
+    qmlRegisterType<QGtkApplication>("Gtk", 3, 0, "Application");
+    qmlRegisterType<QGtkWindow>("Gtk", 3, 0, "Window");
+    qmlRegisterType<QGtkButton>("Gtk", 3, 0, "Button");
+    qmlRegisterType<QGtkHBox>("Gtk", 3, 0, "HBox");
+    qmlRegisterType<QGtkVBox>("Gtk", 3, 0, "VBox");
 
     QQmlApplicationEngine e(QUrl::fromLocalFile("test.qml"));
 
