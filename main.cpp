@@ -36,6 +36,7 @@
 #include "qgtkhbox.h"
 #include "qgtkvbox.h"
 #include "qgtkspinner.h"
+#include "qgtkprogressbar.h"
 
 static void activate_cb(GtkApplication *that, gpointer)
 {
@@ -64,6 +65,7 @@ int main(int argc, char **argv)
     qmlRegisterType<QGtkHBox>("Gtk", 3, 0, "HBox");
     qmlRegisterType<QGtkVBox>("Gtk", 3, 0, "VBox");
     qmlRegisterType<QGtkSpinner>("Gtk", 3, 0, "Spinner");
+    qmlRegisterType<QGtkProgressBar>("Gtk", 3, 0, "ProgressBar");
 
     QQmlApplicationEngine e(QUrl::fromLocalFile("test.qml"));
 

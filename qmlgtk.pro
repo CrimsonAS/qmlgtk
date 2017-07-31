@@ -22,7 +22,8 @@ HEADERS += \
     qgtkbutton.h \
     qgtkhbox.h \
     qgtkvbox.h \
-    qgtkspinner.h
+    qgtkspinner.h \
+    qgtkprogressbar.h
 
 SOURCES += \
     main.cpp \
@@ -33,4 +34,6 @@ SOURCES += \
     qgtkbutton.cpp \
     qgtkhbox.cpp \
     qgtkvbox.cpp \
-    qgtkspinner.cpp
+    qgtkspinner.cpp \
+    qgtkprogressbar.cpp
+

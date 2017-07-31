@@ -23,6 +23,9 @@ Application {
                 Spinner {
                     id: spinner
                 }
+                ProgressBar {
+                    fraction: 0.5
+                }
             }
         }
     }
