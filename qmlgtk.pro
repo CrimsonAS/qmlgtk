@@ -5,6 +5,9 @@
 CONFIG += link_pkgconfig
 PKGCONFIG += gobject-2.0 gtk+-3.0
 
+OBJECTS_DIR = .obj
+MOC_DIR = .moc
+
 QT += qml
 
 TEMPLATE = app
