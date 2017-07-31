@@ -1,4 +1,5 @@
 import Gtk 3.0
+import QtQml 2.0
 
 Application {
     useDarkTheme: true
@@ -31,7 +32,20 @@ Application {
                     id: spinner
                 }
                 ProgressBar {
+                    id: pb
                     fraction: 0.5
+
+                    Timer {
+                        interval: 100
+                        running: true
+                        repeat: true
+                        onTriggered: {
+                            pb.fraction += 0.05
+                            if (pb.fraction > 1.0) {
+                                pb.fraction = 0.0
+                            }
+                        }
+                    }
                 }
             }
         }
