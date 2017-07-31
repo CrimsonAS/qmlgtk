@@ -7,44 +7,20 @@ class QGtkProgressBar : public QGtkWidget
 {
     Q_OBJECT
 
-    Q_PROPERTY(double fraction READ fraction WRITE setFraction NOTIFY fractionChanged);
-    Q_PROPERTY(bool inverted READ isInverted WRITE setInverted NOTIFY invertedChanged);
-    Q_PROPERTY(bool textVisible READ isTextVisible WRITE setTextVisible NOTIFY textVisibleChanged);
-    Q_PROPERTY(QString text READ text WRITE setText NOTIFY textChanged);
-
-public:
-    QGtkProgressBar(QGtkObject *parent = 0);
-
-    double fraction() const;
-    void setFraction(double f);
-
-    bool isInverted() const;
-    void setInverted(bool i);
-
-    bool isTextVisible() const;
-    void setTextVisible(bool v);
-
-    QString text() const;
-    void setText(const QString &t);
+    QGTKOBJECT_PROPERTY(double, fraction, fraction, setFraction, double, fractionChanged, m_fraction, 0)
+    QGTKOBJECT_PROPERTY(bool, inverted, isInverted, setInverted, bool, invertedChanged, m_inverted, false)
+    QGTKOBJECT_PROPERTY(bool, textVisible, isTextVisible, setTextVisible, bool, textVisibleChanged, m_textVisible, false)
+    QGTKOBJECT_PROPERTY(QString, text, text, setText, const QString &, textChanged, m_text, QString())
 
     // ### ellipsize, pulse_step, pulse
 
-signals:
-    void fractionChanged();
-    void invertedChanged();
-    void textVisibleChanged();
-    void textChanged();
+public:
+    QGtkProgressBar(QGtkObject *parent = 0);
 
 protected:
     GObject *acquireObject() override;
     GtkProgressBar *gtkProgressBar() const { return GTK_PROGRESS_BAR(gObject()); }
     void sync() override;
-
-private:
-    bool m_fraction;
-    bool m_inverted;
-    bool m_textVisible;
-    QString m_text;
 };
 
 #endif

@@ -21,18 +21,3 @@ void QGtkWindow::sync()
     QGtkWidget::sync();
 }
 
-QString QGtkWindow::title() const
-{
-    return m_title;
-}
-
-void QGtkWindow::setTitle(const QString &t)
-{
-    if (m_title == t)
-        return;
-
-    m_title = t;
-    emit titleChanged();
-    sync();
-}
-

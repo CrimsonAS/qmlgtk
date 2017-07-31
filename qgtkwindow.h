@@ -7,24 +7,15 @@ class QGtkWindow : public QGtkWidget
 {
     Q_OBJECT
 
-    Q_PROPERTY(QString title READ title WRITE setTitle NOTIFY titleChanged)
+    QGTKOBJECT_PROPERTY(QString, title, title, setTitle, const QString &, titleChanged, m_title, QString())
 
 public:
     QGtkWindow(QGtkObject *parent = 0);
-
-    QString title() const;
-    void setTitle(const QString &t);
-
-signals:
-    void titleChanged();
 
 protected:
     GObject *acquireObject() override;
     GtkWindow *gtkWindow() const { return GTK_WINDOW(gObject()); }
     void sync() override;
-
-private:
-    QString m_title;
 };
 
 #endif

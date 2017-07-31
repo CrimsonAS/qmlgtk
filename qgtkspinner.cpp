@@ -24,18 +24,3 @@ void QGtkSpinner::sync()
     QGtkWidget::sync();
 }
 
-bool QGtkSpinner::isActive() const
-{
-    return m_active;
-}
-
-void QGtkSpinner::setActive(bool a)
-{
-    if (m_active == a)
-        return;
-
-    m_active = a;
-    emit activeChanged();
-    sync();
-}
-

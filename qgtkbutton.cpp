@@ -16,27 +16,11 @@ GObject *QGtkButton::acquireObject()
 
 void QGtkButton::sync()
 {
-    qDebug() << "sync " << gtkButton() << m_label;
     if (!gtkButton())
         return;
 
     gtk_button_set_label(gtkButton(), m_label.isEmpty() ? NULL : m_label.toUtf8().constData());
     QGtkWidget::sync();
-}
-
-QString QGtkButton::label() const
-{
-    return m_label;
-}
-
-void QGtkButton::setLabel(const QString &l)
-{
-    if (m_label == l)
-        return;
-
-    m_label = l;
-    emit labelChanged();
-    sync();
 }
 
 void QGtkButton::onPressed(QGtkButton *that)

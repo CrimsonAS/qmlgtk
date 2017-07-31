@@ -7,24 +7,15 @@ class QGtkSpinner : public QGtkWidget
 {
     Q_OBJECT
 
-    Q_PROPERTY(bool active READ isActive WRITE setActive NOTIFY activeChanged)
+    QGTKOBJECT_PROPERTY(bool, active, isActive, setActive, bool, activeChanged, m_active, false)
 
 public:
     QGtkSpinner(QGtkObject *parent = 0);
-
-    bool isActive() const;
-    void setActive(bool a);
-
-signals:
-    void activeChanged();
 
 protected:
     GObject *acquireObject() override;
     GtkSpinner *gtkSpinner() const { return GTK_SPINNER(gObject()); }
     void sync() override;
-
-private:
-    bool m_active;
 };
 
 #endif

@@ -12,7 +12,6 @@ void QGtkWidget::sync()
         return;
     }
 
-qDebug() << "widget sync" << this << m_visible;
     if (m_visible) {
         gtk_widget_show_all(gtkWidget());
     } else {
@@ -23,20 +22,6 @@ qDebug() << "widget sync" << this << m_visible;
 GtkWidget *QGtkWidget::gtkWidget() const
 {
     return GTK_WIDGET(m_me);
-}
-
-bool QGtkWidget::isVisible() const
-{
-    return m_visible;
-}
-
-void QGtkWidget::setVisible(bool v)
-{
-    if (v == m_visible)
-        return;
-
-    m_visible = v;
-    sync();
 }
 
 void QGtkWidget::childCreated(QGtkObject *o)

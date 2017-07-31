@@ -7,16 +7,10 @@ class QGtkWidget : public QGtkObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(bool visible READ isVisible WRITE setVisible NOTIFY visibleChanged)
+    QGTKOBJECT_PROPERTY(bool, visible, isVisible, setVisible, bool, visibleChanged, m_visible, false)
 
 public:
     QGtkWidget(QGtkObject *parent = 0);
-
-    bool isVisible() const;
-    void setVisible(bool v);
-
-signals:
-    void visibleChanged();
 
 protected:
     void sync() override;
@@ -25,8 +19,6 @@ protected:
     GtkWidget *gtkWidget() const;
 
 private:
-    bool m_visible;
-
     friend class QGtkBox;
 };
 

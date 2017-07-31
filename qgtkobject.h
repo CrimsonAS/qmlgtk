@@ -38,4 +38,28 @@ private:
     static void clearGtkChilds(QQmlListProperty<QObject> *prop);
 };
 
+// Simple helper to prevent massive repetition
+#define QGTKOBJECT_PROPERTY(type, propName, readerName, writerName, writerType, signalName, memberName, memberValue) \
+    Q_PROPERTY(type propName READ readerName WRITE writerName NOTIFY signalName) \
+    public: \
+    type readerName() const \
+    { \
+        qDebug() << this << "reading " #propName << memberName; \
+        return memberName; \
+    } \
+    void writerName(writerType var) \
+    { \
+        if (memberName == var) \
+        return; \
+        qDebug() << this << "writing " #propName << " (was" << memberName << "now" << var << ")"; \
+        memberName = var; \
+        emit signalName(); \
+        sync(); \
+    } \
+    signals: \
+    Q_SIGNAL /* make moc happy with the macro magic */ void signalName(); \
+    private: \
+    type memberName = memberValue;
+
+
 #endif // QGTKOBJECT_H

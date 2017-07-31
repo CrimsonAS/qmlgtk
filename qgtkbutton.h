@@ -7,17 +7,12 @@ class QGtkButton : public QGtkWidget
 {
     Q_OBJECT
 
-    Q_PROPERTY(QString label READ label WRITE setLabel NOTIFY labelChanged);
+    QGTKOBJECT_PROPERTY(QString, label, label, setLabel, const QString &, labelChanged, m_label, QString())
 
 public:
     QGtkButton(QGtkObject *parent = 0);
 
-    QString label() const;
-    void setLabel(const QString &l);
-
 signals:
-    void labelChanged();
-
     // ### consider an event wrapper
     void pressed();
     void released();
@@ -31,9 +26,6 @@ protected:
     static void onPressed(QGtkButton *that);
     static void onReleased(QGtkButton *that);
     static void onClicked(QGtkButton *that);
-
-private:
-    QString m_label;
 };
 
 #endif

@@ -41,13 +41,11 @@
 
 static void activate_cb(GtkApplication *that, gpointer)
 {
-    qDebug() << "activate " << that;
     emit QGtkApplication::instance->activated();
 }
 
 static void startup_cb(GtkApplication *that, gpointer)
 {
-    qDebug() << "startup " << that;
     emit QGtkApplication::instance->startup();
 }
 
